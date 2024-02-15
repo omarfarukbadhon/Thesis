@@ -17,38 +17,74 @@
         </nav>
     </header>
     <main class="mx-2 md:mx-16 mt-64 md:mt-56">
-        <section class="grid grid-cols-1 xl:grid-cols-3 gap-4 xl:gap-2 2xl:gap-9 mb-11 text-2xl justify-center items-center justify-items-center w-full mx-auto">
-            <input type="text" placeholder="Your Today's set Value: 20unit" class="input border border-[#76ff76] w-full md:w-3/4 xl:w-full 2xl:w-3/4 placeholder:text-center py-3 mx-auto" disabled />
-            <input type="date" class="input w-full md:w-3/4 border border-[#76ff76]  px-4 py-3 outline-none" name="date-local" id="date" placeholder="Select Date">
-            <input type="text" placeholder="Today's energy consumption: 15unit" class="input border border-[#76ff76] w-full md:w-3/4 xl:w-full 2xl:w-3/4 placeholder:text-center py-3" disabled />
+        <section
+            class="grid grid-cols-1 xl:grid-cols-3 gap-4 xl:gap-2 2xl:gap-9 mb-11 text-2xl justify-center items-center justify-items-center w-full mx-auto">
+            <p
+                class="input text-center border border-[#76ff76] w-full md:w-3/4 xl:w-full 2xl:w-3/4 placeholder:text-center py-3 mx-auto">
+                Your Today's set Value: <span id="setValue">20</span>unit</p>
+            <input type="date" class="input w-full md:w-3/4 border border-[#76ff76]  px-4 py-3 outline-none"
+                name="date-local" id="date" placeholder="Select Date">
+            <p
+                class="input text-center border border-[#76ff76] w-full md:w-3/4 xl:w-full 2xl:w-3/4 placeholder:text-center py-3">
+                Today's energy consumption: <span id="dailyConsumption">15</span>unit</p>
         </section>
-        <section class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-6 gap-5 justify-center items-center justify-items-center mb-6">
+        <section
+            class="grid grid-cols-1 xl:grid-cols-3 gap-1 mb-11 text-2xl justify-center items-center justify-items-center w-1/2 mx-auto">
+            <p>Emergency Power</p>
+            <input type="text" name="" id="emergencyPower"
+                class="input w-full md:w-3/4 border border-[#76ff76]  px-4 py-3 outline-none" placeholder="Max: 10unit">
+            <input type="button" onclick="setEmergencyPower()" value="Get Power"
+                class="px-5 py-2 bg-green-300 text-red-400 border rounded-3xl cursor-pointer">
+        </section>
+        <section
+            class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-6 gap-5 justify-center items-center justify-items-center mb-6">
             <div class="2xl:col-span-2">
-                <iframe width="427" height="305" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=193270806&amp;format=interactive"></iframe>
+                <iframe width="427" height="305" seamless frameborder="0" scrolling="no"
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=193270806&amp;format=interactive"></iframe>
             </div>
             <div class="2xl:col-span-2">
-                <iframe width="427" height="305" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=333530025&amp;format=interactive"></iframe>
+                <iframe width="427" height="305" seamless frameborder="0" scrolling="no"
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=333530025&amp;format=interactive"></iframe>
             </div>
             <div class="2xl:col-span-2">
-                <iframe width="427" height="305" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=495818367&amp;format=interactive"></iframe>
+                <iframe width="427" height="305" seamless frameborder="0" scrolling="no"
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=495818367&amp;format=interactive"></iframe>
             </div>
             <div class="2xl:col-span-2">
-                <iframe width="427" height="305" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=1289159152&amp;format=interactive"></iframe>
+                <iframe width="427" height="305" seamless frameborder="0" scrolling="no"
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=1289159152&amp;format=interactive"></iframe>
             </div>
             <div class="2xl:col-span-2">
-                <iframe width="427" height="305" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=465863204&amp;format=interactive"></iframe>
+                <iframe width="427" height="305" seamless frameborder="0" scrolling="no"
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=1367979119&amp;format=interactive"></iframe>
             </div>
             <div class="2xl:col-span-2">
-                <iframe width="427" height="305" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=1361860944&amp;format=interactive"></iframe>
+                <iframe width="427" height="305" seamless frameborder="0" scrolling="no"
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=1361860944&amp;format=interactive"></iframe>
             </div>
             <div class="2xl:col-span-3">
-                <iframe width="427" height="305" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=566086763&amp;format=interactive"></iframe>
+                <iframe width="427" height="305" seamless frameborder="0" scrolling="no"
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=566086763&amp;format=interactive"></iframe>
             </div>
             <div class="2xl:col-span-3">
-                <iframe width="427" height="305" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=1309337772&amp;format=interactive"></iframe>
+                <iframe width="427" height="305" seamless frameborder="0" scrolling="no"
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQki0llv_8qZBRnZsVJrSm7l-wSbi1rzu6hI6Z2gBD2DBgVVk3WB_h2DIE5toTEwDwhhsM9Hre4bI07/pubchart?oid=1309337772&amp;format=interactive"></iframe>
             </div>
         </section>
     </main>
+    <script>
+        function setEmergencyPower() {
+            const emergency = document.getElementById("emergencyPower").value;
+            const emergencyValue = parseInt(emergency);
+            if (emergencyValue > 10 || typeof emergency === "string") {
+                alert("You can't get more than 10 unit")
+            } else {
+                const newTotal = 20 + emergency;
+                console.log(newTotal);
+                document.getElementById("setValue").innerHTML = newTotal;
+            }
+        }
+    </script>
 </body>
 
 </html>
